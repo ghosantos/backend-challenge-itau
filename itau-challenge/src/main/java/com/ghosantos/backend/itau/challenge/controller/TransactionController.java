@@ -1,5 +1,6 @@
 package com.ghosantos.backend.itau.challenge.controller;
 
+import com.ghosantos.backend.itau.challenge.dto.StatisticsResponse;
 import com.ghosantos.backend.itau.challenge.dto.TransactionRequest;
 import com.ghosantos.backend.itau.challenge.service.TransactionService;
 import org.springframework.http.HttpStatus;
@@ -26,5 +27,11 @@ public class TransactionController {
     public ResponseEntity<Void> delete(){
         transactionService.delete();
         return ResponseEntity.ok().build();
+    }
+
+    @GetMapping(value = "/statistics")
+    public ResponseEntity<StatisticsResponse> getStats(){
+        StatisticsResponse response = transactionService.getStatistics();
+        return ResponseEntity.ok().body(response);
     }
 }
