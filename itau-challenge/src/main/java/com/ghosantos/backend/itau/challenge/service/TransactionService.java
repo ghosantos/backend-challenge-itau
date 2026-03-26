@@ -23,4 +23,7 @@ public class TransactionService {
         transactions.add(new Transaction(request.value(), request.dateTime()));
     }
 
+    public void delete(){
+        transactions.clear();
+    }
 }

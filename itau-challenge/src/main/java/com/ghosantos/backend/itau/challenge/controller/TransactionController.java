@@ -4,10 +4,7 @@ import com.ghosantos.backend.itau.challenge.dto.TransactionRequest;
 import com.ghosantos.backend.itau.challenge.service.TransactionService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping(value = "transaction")
@@ -23,5 +20,11 @@ public class TransactionController {
     public ResponseEntity<Void> save (@RequestBody TransactionRequest request){
         transactionService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
+    }
+
+    @DeleteMapping
+    public ResponseEntity<Void> delete(){
+        transactionService.delete();
+        return ResponseEntity.ok().build();
     }
 }
