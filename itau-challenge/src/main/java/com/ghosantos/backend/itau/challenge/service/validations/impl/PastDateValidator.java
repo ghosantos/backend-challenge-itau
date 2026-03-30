@@ -7,7 +7,6 @@ import org.springframework.core.annotation.Order;
 import org.springframework.stereotype.Component;
 
 import java.time.Clock;
-import java.time.OffsetDateTime;
 
 @Component
 @Order(3)
@@ -21,7 +20,7 @@ public class PastDateValidator implements Validation {
 
     @Override
     public void validate(TransactionRequest request) {
-        if (request.dateTime().isBefore(OffsetDateTime.now())){
+        if (request.dateTime().toInstant().isBefore(clock.instant())){
             throw new PastDateNotAllowedException("Data/hora da transação não deve ser anterior a atual");
         }
     }
