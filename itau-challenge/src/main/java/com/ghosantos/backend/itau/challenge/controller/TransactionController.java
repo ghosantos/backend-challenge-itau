@@ -3,6 +3,7 @@ package com.ghosantos.backend.itau.challenge.controller;
 import com.ghosantos.backend.itau.challenge.dto.StatisticsResponse;
 import com.ghosantos.backend.itau.challenge.dto.TransactionRequest;
 import com.ghosantos.backend.itau.challenge.service.TransactionService;
+import jakarta.validation.Valid;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -18,7 +19,7 @@ public class TransactionController {
     }
 
     @PostMapping
-    public ResponseEntity<Void> save (@RequestBody TransactionRequest request){
+    public ResponseEntity<Void> save (@RequestBody @Valid TransactionRequest request){
         transactionService.save(request);
         return ResponseEntity.status(HttpStatus.CREATED).build();
     }
