@@ -22,9 +22,9 @@ O objetivo é gerenciar transações e fornecer métricas (soma, média, valor m
 
 | Método | Endpoint | Descrição |
 | :--- | :--- | :--- |
-| **POST** | `/transacao` | Recebe uma transacao (valida valor e data). |
-| **DELETE** | `/transacao` | Limpa a lista de transações. |
-| **GET** | `/estatistica` | Retorna estatísticas dos últimos 60 segundos. |
+| **POST** | `/transaction` | Recebe uma transacao (valida valor e data). |
+| **DELETE** | `/transaction` | Limpa a lista de transações. |
+| **GET** | `/statistics` | Retorna estatísticas dos últimos 60 segundos. |
 
 ---
 
